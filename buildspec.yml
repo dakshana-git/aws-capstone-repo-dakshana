@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - yum install -y httpd   # For EC2 with Amazon Linux (optional)
+  
+  pre_build:
+    commands:
+      - echo "Preparing build environment..."
+
+  build:
+    commands:
+      - echo "Building the application..."
+      - cp index.html /var/www/html/index.html
+
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+
+artifacts:
+  files:
+    - '**/*'
